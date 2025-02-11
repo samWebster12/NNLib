@@ -1,0 +1,13 @@
+1. Change backpropogration to use matrices instead of loops
+2. Add He Initialization for RELU, Xavier for others
+    - Goal of weight initialization is to maintain the variance of the preactivations between two adjacent layers
+    - We don't want the variance preactivations of one layer to be significantly smaller or larger than the next
+    - Would recommend working through the variance math
+    - Xavier initialization uses sqrt (1 / D_i) multiplied by weights from normal distribution with variance 1 and where D_i is number of input neurons
+    - He initialization uses sqrt (2 / D_i) because RELU clips half the preactivations (that's why we include the two)
+    - Note: its impossilbe to satisfy the equations for maintaining equal variance for both adjacent layers so sometimes we use mean: (D_o + D_i) / 2
+
+
+3. Add momentum feature
+4. Add Adam features
+5. Implement regularization

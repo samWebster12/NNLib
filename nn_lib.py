@@ -3,46 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
+from functions.activation_functions import tanh, tanh_deriv, leaky_relu, leaky_relu_deriv, relu, relu_deriv, sigmoid, sigmoid_deriv
+from functions.loss_functions import least_squares, least_squares_deriv
 
-#Activation Functions
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
-
-def sigmoid_deriv(x):
-    return sigmoid(x) * (1 - sigmoid(x))
-
-def relu(x):
-    return max(0, x)
-
-def relu_deriv(x):
-    return 1 if x > 0 else 0
-
-def leaky_relu(x, alpha=0.01):
-    return x if x > 0 else alpha*x
-
-def leaky_relu_deriv(x, alpha=0.01):
-    return 1 if x > 0 else alpha
-
-def tanh(x):
-    return np.tanh(x)
-
-def tanh_deriv(x):
-    return 1.0 - np.tanh(x)**2
-
-#Loss Functions
-def least_squares(y_pred, y_true):
-    loss = 0
-    for i in range(len(y_pred)):
-        loss += (y_true[i] - y_pred[i]) ** 2
-    
-    return loss
-
-def least_squares_deriv(y_pred, y_true):
-    loss_der = 0
-    for i in range(len(y_pred)):
-        loss_der += -2 * (y_true[i] - y_pred[i])
-    
-    return loss_der
 
 #Neuron Types
 class InputNeuron:

@@ -3,9 +3,9 @@ import numpy as np
 
 input_dim = 1
 output_dim = 1
-hidden_layers = [(32, "tanh"), (32, "tanh")]
+hidden_layers = [(6, "leaky_relu"), (6, "leaky_relu")]
 learning_rate = 0.001
-epochs = 4000
+epochs = 8000
 
 nn = NeuralNetwork(input_dim, output_dim, hidden_layers, learning_rate)
 
